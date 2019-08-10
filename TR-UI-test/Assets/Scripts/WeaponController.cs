@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class WeaponController : MonoBehaviour
 {
 	[SerializeField]
+	private Image rarityfieldBlue;
+	[SerializeField]
+	private Image rarityfieldViolet;
+
+	[SerializeField]
 	private Text weaponTitle;
 	[SerializeField]
 	private Text weaponLevel;
@@ -27,8 +32,14 @@ public class WeaponController : MonoBehaviour
 	[SerializeField]
 	private Text perkDesc;
 
+	[SerializeField]
+	private Image weaponMod3;
+
 	public void RapidfireFrame()
 	{
+		weaponMod3.enabled = true;
+		rarityfieldBlue.enabled = true;
+		rarityfieldViolet.enabled = false;
 		weaponTitle.text = "Storm's-a-Brewing";
 		weaponLevel.text = "Level 9 Auto rifle";
 		weaponDescription.text = "Bring forth the rain.";
@@ -41,9 +52,12 @@ public class WeaponController : MonoBehaviour
 
 	public void SinglefireFrame()
 	{
+		weaponMod3.enabled = false;
+		rarityfieldViolet.enabled = true;
+		rarityfieldBlue.enabled = false;
 		weaponTitle.text = "Arc Conductor";
 		weaponLevel.text = "Level 13 Precision rifle";
-		weaponDescription.text = "Bring forth the rain.";
+		weaponDescription.text = "Strike down with lightning.";
 		Gun2.enabled = true;
 		statNumbers.text = "85" + "\n" + "80" + "\n" + "85" + "\n" + "10" + "\n" + "60 RPM";
 		perkImage.enabled = true;
